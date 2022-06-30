@@ -1,0 +1,8 @@
+#
+context-name: app-test
+
+redis:
+  addr: "xxxx"
+  db: 10
+
+
