@@ -1,17 +1,16 @@
 package redis
 
 import (
-	"awesomeProject/config"
+	"awesomeProject/src/config"
+	. "awesomeProject/src/log"
 	"fmt"
 	"github.com/go-redis/redis"
 	"time"
 )
 
-// 声明一个全局的redisDb变量
 var RedisDb *redis.Client
 
-// 根据redis配置初始化一个客户端
-func InitRedisClient() (err error) {
+func InitRedisClient() {
 
 	redisPros := config.Config.Redis
 
@@ -22,20 +21,16 @@ func InitRedisClient() (err error) {
 	})
 
 	//通过 *redis.Client.Ping() 来检查是否成功连接到了redis服务器
-	_, err = RedisDb.Ping().Result()
-	if err != nil {
-		return err
-	}
-
-	fmt.Println("the redis client init success.")
-	return nil
-}
-
-func TestRedis() {
-	err := InitRedisClient()
+	_, err := RedisDb.Ping().Result()
 	if err != nil {
 		panic(err)
 	}
+
+	Log.Println("the redis client init success.")
+}
+
+func TestRedis() {
+	InitRedisClient()
 
 	a1 := RedisDb.Get("test:a:a_1")
 	fmt.Printf("before a1 is %s \n", a1.Val())

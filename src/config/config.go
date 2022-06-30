@@ -1,12 +1,13 @@
 package config
 
 import (
+	. "awesomeProject/src/log"
 	"fmt"
 	"github.com/spf13/viper"
 )
 
 func init() {
-	InitConfig("")
+	//InitConfig("")
 }
 
 func InitConfig(fileName string) {
@@ -17,7 +18,7 @@ func InitConfig(fileName string) {
 	viper.SetConfigName(fileName) // name of config file (without extension)
 	viper.SetConfigType("yaml")   // REQUIRED if the config file does not have the extension in the name
 	//viper.AddConfigPath("config/")         // path to look for the config file in
-	viper.AddConfigPath("./config")
+	viper.AddConfigPath("./src/config")
 	viper.AutomaticEnv()
 	err := viper.ReadInConfig() // Find and read the config file
 	if err != nil {             // Handle errors reading the config file
@@ -28,7 +29,7 @@ func InitConfig(fileName string) {
 	if er != nil {
 		panic(er)
 	}
-	fmt.Println("=================== >>> context config is ", Config)
+	Log.Infoln("=================== >>> context config is ", Config)
 }
 
 var Config AppConfig = AppConfig{}
@@ -36,6 +37,7 @@ var Config AppConfig = AppConfig{}
 type AppConfig struct {
 	Redis redisProperties
 }
+
 type redisProperties struct {
 	Network string
 	// host:port address.

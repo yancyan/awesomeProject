@@ -1,0 +1,8 @@
+/src/log
+.idea
+
+/bin
+
+src/config/*.yaml
+!src/config/application.yaml
+/logs/
