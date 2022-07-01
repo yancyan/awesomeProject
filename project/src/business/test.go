@@ -2,12 +2,12 @@ package business
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
 
-var wg sync.WaitGroup
-var lock sync.Mutex
-var once sync.Once
+//var wg sync.WaitGroup
+//var lock sync.Mutex
+//var once sync.Once
 
 //var x int
 //
@@ -21,6 +21,8 @@ var once sync.Once
 //}
 
 func Test() {
+
+	fmt.Println("", time.Now())
 	//wg.Add(2)
 	//go add()
 	//go add()
