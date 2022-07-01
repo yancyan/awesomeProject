@@ -3,28 +3,30 @@ package db
 import (
 	"database/sql"
 	"fmt"
+	// init 自动注册驱动，与gorm驱动注册冲突，先注释
 	//_ "github.com/sijms/go-ora/v2"
 	. "project/src/config"
 	. "project/src/log"
 )
 
-//var DbClient *sql.DB
+var DbClient *sql.DB
+
 //
-//func InitOracleConfig() {
-//	InitConfig("dev-f1")
-//	InitLog("app-")
-//
-//	db, err := sql.Open("oracle", GetDbUrl())
-//	if err != nil {
-//		Log.Fatalf("connect oracle db error: %s:", err.Error())
-//	}
-//	err = db.Ping()
-//	if err != nil {
-//		panic(err)
-//	}
-//
-//	DbClient = db
-//}
+func InitOracleConfig() {
+	InitConfig("dev-f1")
+	InitLog("app-")
+
+	db, err := sql.Open("oracle", GetDbUrl())
+	if err != nil {
+		Log.Fatalf("connect oracle db error: %s:", err.Error())
+	}
+	err = db.Ping()
+	if err != nil {
+		panic(err)
+	}
+
+	DbClient = db
+}
 
 func GetDbUrl() string {
 	dbProps := Config.Db
@@ -34,15 +36,15 @@ func GetDbUrl() string {
 		dbProps.Host, dbProps.Port, dbProps.Dbname)
 }
 
-//func TestOracle() {
-//	InitOracleConfig()
-//
-//	//rows, err := db.Query("select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') AS name from dual")
-//	const sqlQuery = "select * from boss_account.account where id = 10054"
-//
-//	rs, _ := DoQuery(DbClient, sqlQuery)
-//	Log.Infoln(rs)
-//}
+func TestOracle() {
+	InitOracleConfig()
+
+	//rows, err := db.Query("select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss') AS name from dual")
+	const sqlQuery = "select * from boss_account.account where id = 10054"
+
+	rs, _ := DoQuery(DbClient, sqlQuery)
+	Log.Infoln(rs)
+}
 
 // DoQuery 查询结果集合转到map
 func DoQuery(db *sql.DB, sqlInfo string, args ...interface{}) ([]map[string]interface{}, error) {
