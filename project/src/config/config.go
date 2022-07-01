@@ -1,9 +1,9 @@
 package config
 
 import (
-	. "awesomeProject/src/log"
 	"fmt"
 	"github.com/spf13/viper"
+	. "project/src/log"
 )
 
 func init() {

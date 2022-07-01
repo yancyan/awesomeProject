@@ -1,10 +1,10 @@
 package redis
 
 import (
-	"awesomeProject/src/config"
-	. "awesomeProject/src/log"
 	"fmt"
 	"github.com/go-redis/redis"
+	"project/src/config"
+	. "project/src/log"
 	"time"
 )
 

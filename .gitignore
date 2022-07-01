@@ -1,8 +1,7 @@
-/src/log
 .idea
 
-/bin
+/project/bin
 
-src/config/*.yaml
-!src/config/application.yaml
-/logs/
+project/src/config/*.yaml
+!project/src/config/application.yaml
+/project/logs/
