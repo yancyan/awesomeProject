@@ -36,6 +36,15 @@ var Config AppConfig = AppConfig{}
 
 type AppConfig struct {
 	Redis redisProperties
+	Db    DbProperties
+}
+
+type DbProperties struct {
+	Username string
+	Password string
+	Host     string
+	Port     int16
+	Dbname   string
 }
 
 type redisProperties struct {

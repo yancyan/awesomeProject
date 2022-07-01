@@ -4,5 +4,11 @@ context-name: app-test
 redis:
   addr: "xxxx"
   db: 10
+db:
+  username:
+  password:
+  host:
+  port:
+  dbname:
 
 
