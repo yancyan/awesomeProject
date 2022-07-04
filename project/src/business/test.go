@@ -1,8 +1,9 @@
 package business
 
 import (
-	"fmt"
-	"time"
+	"io/ioutil"
+	"net/http"
+	. "project/src/log"
 )
 
 //var wg sync.WaitGroup
@@ -22,7 +23,13 @@ import (
 
 func Test() {
 
-	fmt.Println("", time.Now())
+	//test()
+
+	//testHttp()
+
+}
+func test() {
+	//fmt.Println("", time.Now())
 	//wg.Add(2)
 	//go add()
 	//go add()
@@ -59,7 +66,7 @@ func Test() {
 	//	fmt.Println(runtime.NumGoroutine())
 	//}
 	//wg.Wait()
-	fmt.Println("end.")
+	//fmt.Println("end.")
 
 	//countChan := make(chan int)
 	//
@@ -84,5 +91,20 @@ func Test() {
 	//	只写信道
 	//type Sender chan <- int
 	//var sender Sender = countChan
+}
+func testHttp() {
+	//
+	//addrs, _ := net.InterfaceAddrs()
+	//Log.Infoln(addrs)
+	//
+	//interfs, _ := net.Interfaces()
+	//Log.Infoln(interfs)
 
+	resp, err := http.Get("https://www.baidu.com")
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	bdy, _ := ioutil.ReadAll(resp.Body)
+	Log.Infoln(string(bdy))
 }

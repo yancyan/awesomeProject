@@ -16,20 +16,6 @@ func TestOrm() {
 		log.Fatal(err)
 	}
 
-	// Insert
-	//datas := []TestBean{
-	//	{"a", "a", "a", "01", time.Now()},
-	//	{"b", "a", "a", "01", time.Now()},
-	//}
-	//db = db.Create(&datas)
-	//db.Commit()
-
-	////Update
-	//db = db.Debug().Where("id=?", "a").Model(&bean.TestBean{}).Update("state", "02")
-	//
-	////Delete
-	//db := db.Where("id = ?", "a").Delete(&bean.TestBean{})
-
 	//Select
 	var row []TestBean
 	db = db.First(&row)

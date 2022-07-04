@@ -1,8 +1,8 @@
 package main
 
 import (
+	"project/src/business"
 	_ "project/src/config"
-	"project/src/orm"
 )
 
 func init() {
@@ -13,7 +13,7 @@ func init() {
 }
 
 func main() {
-	//business.Test()
+	business.Test()
 	//db.TestOracle()
-	orm.TestOrm()
+	//orm.TestOrm()
 }
