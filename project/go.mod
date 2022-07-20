@@ -14,9 +14,6 @@ require (
 	github.com/sijms/go-ora/v2 v2.4.26
 	github.com/wdrabbit/gorm-oracle v0.0.0-20220614065831-c6c73d967d44
 	gorm.io/gorm v1.23.7
-)
-
-require (
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect

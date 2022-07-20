@@ -25,7 +25,7 @@ func Test() {
 
 	//test()
 
-	//testHttp()
+	testHttp()
 
 }
 func test() {
@@ -107,4 +107,5 @@ func testHttp() {
 	defer resp.Body.Close()
 	bdy, _ := ioutil.ReadAll(resp.Body)
 	Log.Infoln(string(bdy))
+
 }
